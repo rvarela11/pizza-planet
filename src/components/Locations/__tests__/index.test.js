@@ -8,11 +8,7 @@ import Locations from '../Locations';
 describe('Locations Container', () => {
     it('renders Locations without crashing', () => {
         shallow(
-            <Locations
-                bookingFooterNavLabels={[]}
-                data={[]}
-                handleOnChangeSearch={() => {}}
-            />
+            <Locations />
         );
     });
 });
