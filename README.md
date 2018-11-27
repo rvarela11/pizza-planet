@@ -4,8 +4,8 @@
 
 I have included the following to the create-react-app 2:
 
-Apollo 2.1 (Query Components)
-SCSS
-Eslint Airbnb
-Enzyme
-Material UI
+1. Apollo 2.1 (Query Components)
+2. SCSS
+3. Eslint Airbnb
+4. Enzyme
+5. Material UI
