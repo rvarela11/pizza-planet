@@ -1,11 +1,18 @@
-# [Create React App 2](https://github.com/facebookincubator/create-react-app)
+# Waldo Photos
 
 ### About
 
-I have included the following to the create-react-app 2:
+A place where a user can order pizzas 🍕
 
-1. Apollo 2.1 (Query Components)
-2. SCSS
-3. Eslint Airbnb
-4. Enzyme
-5. Material UI
+### Technologies
+
+1. React
+2. Apollo 2.1
+3. SCSS
+
+### Others
+
+1. Responsive design
+2. Eslint Airbnb
+3. Enzyme
+4. Material UI

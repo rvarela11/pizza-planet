@@ -1,18 +1,3 @@
-export const defaults = {
-    apiDataAllFiltered: [],
-    bookingFooterNavLabels: ['CITY', 'DATES', 'VEHICLE', 'COVERAGE'],
-    cityInputValue: ''
-};
+export const defaults = {};
 
-export const resolvers = {
-    Mutation: {
-        updateCityInputValue: (_, { cityInputValue }, { cache }) => {
-            cache.writeData({
-                data: {
-                    cityInputValue
-                }
-            });
-            return null;
-        }
-    }
-};
+export const resolvers = {};

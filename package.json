@@ -1,8 +1,8 @@
 {
-  "name": "cra_2-apollo",
+  "name": "Waldo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rvarela11.github.io/cra_2-apollo",
+  "homepage": "https://rvarela11.github.io/waldo",
   "dependencies": {
     "@material-ui/core": "3.5.1",
     "@material-ui/icons": "3.0.1",
