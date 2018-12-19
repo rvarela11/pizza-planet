@@ -1,23 +1,28 @@
 const graphql = require('graphql');
 
 const {
-    GraphQLString,
     GraphQLObjectType,
     GraphQLSchema,
-    GraphQLList
+    GraphQLList,
+    GraphQLString
 } = graphql;
 
-const { CitiesType, citiesResolver } = require('./cities');
+const { PizzaSizesType, pizzaSizesResolver } = require('./pizzaSizes');
+const { PizzaSizeByNameType, pizzaSizeByNameResolver } = require('./pizzaSizeByName');
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        Cities: {
-            resolve: citiesResolver,
+        pizzaSizes: {
+            resolve: pizzaSizesResolver,
+            type: new GraphQLList(PizzaSizesType)
+        },
+        pizzaSizeByName: {
             args: {
-                cityInputValue: { type: GraphQLString }
+                name: { type: GraphQLString }
             },
-            type: new GraphQLList(CitiesType)
+            resolve: pizzaSizeByNameResolver,
+            type: PizzaSizeByNameType
         }
     }
 });
