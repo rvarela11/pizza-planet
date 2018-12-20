@@ -1,0 +1,10 @@
+// @styles
+@import '../../globals/scss/colors';
+@import '../../globals/scss/spacing';
+@import '../../globals/scss/typography';
+
+.footer {
+  height: rem(40px);
+  padding: $spacing-sm; 
+  background-color: $color__mid-gray;
+}

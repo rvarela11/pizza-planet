@@ -10,6 +10,8 @@
   margin: $spacing-xs 0;
   padding: $spacing-xs;
   width: rem(275px);
+  text-decoration: none;
+  color: $color__black;
 
   &:hover {
     background: $color__red;

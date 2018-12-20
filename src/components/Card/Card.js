@@ -1,6 +1,8 @@
 // @vendors
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 // @styles
 import './Card.scss';
@@ -9,7 +11,7 @@ import './Card.scss';
 const Card = (props) => {
     const { item } = props;
     return (
-        <div className="pizza-card" aria-label={item.description} tabIndex="0" role="button">
+        <Link to="/order" className="pizza-card" aria-label={item.description} tabIndex="0" role="button">
             <div className="pizza-card__size">
                 <div className="pizza-card__size-label">
                     {item.name.charAt(0)}
@@ -26,7 +28,7 @@ const Card = (props) => {
                     {`Max Toppings: ${item.maxToppings}`}
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
@@ -35,4 +37,4 @@ Card.propTypes = {
 };
 
 
-export default Card;
+export default withRouter(Card);
