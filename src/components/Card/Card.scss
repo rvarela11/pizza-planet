@@ -1,0 +1,71 @@
+// @styles
+@import '../../globals/scss/colors';
+@import '../../globals/scss/spacing';
+@import '../../globals/scss/typography';
+
+.pizza-card {
+  border: $spacing-4xs solid $color__light-gray;
+  display: flex;
+  flex-direction: row;
+  margin: $spacing-xs 0;
+  padding: $spacing-xs;
+  width: rem(275px);
+
+  &:hover {
+    background: $color__red;
+    cursor: pointer;
+  }
+
+  &:focus {
+    box-shadow: inset 0 0 0 2px $color__red;
+    outline: none;
+  }
+}
+
+.pizza-card__size,
+.pizza-card__description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pizza-card__size-label,
+.pizza-card__size-name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pizza-card__size-label {
+  @include typescale(4);
+  text-transform: uppercase;
+}
+
+.pizza-card__description-maxToppings,
+.pizza-card__description-basePrice {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pizza-card__description-basePrice {
+  @include typescale(2);
+}
+
+.pizza-card__description-maxToppings {
+  @include typescale(-1);
+}
+
+.pizza-card__size-label,
+.pizza-card__size-name,
+.pizza-card__description-maxToppings,
+.pizza-card__description-basePrice {
+  flex: 1;
+}
+
+.pizza-card:hover .pizza-card__size-label,
+.pizza-card:hover .pizza-card__size-name,
+.pizza-card:hover .pizza-card__description-maxToppings,
+.pizza-card:hover .pizza-card__description-basePrice {
+  color: $color__white;
+}

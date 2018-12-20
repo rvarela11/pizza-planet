@@ -2,7 +2,6 @@
 const graphql = require('graphql');
 const axios = require('axios');
 const {
-    GraphQLFloat,
     GraphQLInt,
     GraphQLObjectType,
     GraphQLString
@@ -13,7 +12,10 @@ const PizzaSizesType = new GraphQLObjectType({
     fields: {
       name: { type: GraphQLString },
       maxToppings: { type: GraphQLInt },
-      basePrice: { type: GraphQLFloat }
+      basePrice: { 
+          type: GraphQLString,
+          resolve: (data) => `$${data.basePrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+        }
     }
 });
 
