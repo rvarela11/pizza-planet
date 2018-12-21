@@ -17,7 +17,9 @@ const Order = () => (
                     {({ data: { pizzaSizeByName }, loading }) => {
                         if (loading) return null;
                         return (
-                            <OrderCard data={pizzaSizeByName} />
+                            <div className="order__selection">
+                                <OrderCard data={pizzaSizeByName} />
+                            </div>
                         );
                     }}
                 </Query>

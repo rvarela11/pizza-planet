@@ -1,6 +1,7 @@
 // @vendors
 const graphql = require('graphql');
 const axios = require('axios');
+
 const {
     GraphQLBoolean,
     GraphQLFloat,
@@ -13,24 +14,26 @@ const {
 const ToppingsType = new GraphQLObjectType({
     name: 'ToppingsType',
     fields: {
-        topping: {type: new GraphQLObjectType({
-            name: 'ToppingType',
-            fields: {
-                name: { type: GraphQLString },
-                price: { type: GraphQLFloat }
-            }
-          })},
-        defaultSelected: { type: GraphQLBoolean}
+        topping: {
+            type: new GraphQLObjectType({
+                name: 'ToppingType',
+                fields: {
+                    name: { type: GraphQLString },
+                    price: { type: GraphQLFloat }
+                }
+            })
+        },
+        defaultSelected: { type: GraphQLBoolean }
     }
-  });
+});
 
 const PizzaSizeByNameType = new GraphQLObjectType({
     name: 'pizzaSizeByName',
     fields: {
-      name: { type: GraphQLString },
-      maxToppings: { type: GraphQLInt },
-      basePrice: { type: GraphQLFloat },
-      toppings: { type: new GraphQLList(ToppingsType)}
+        name: { type: GraphQLString },
+        maxToppings: { type: GraphQLInt },
+        basePrice: { type: GraphQLFloat },
+        toppings: { type: new GraphQLList(ToppingsType) }
     }
 });
 
@@ -40,7 +43,7 @@ const pizzaSizeByNameResolver = (parentValue, args) => axios({
     url: URL,
     method: 'post',
     data: {
-      query: `
+        query: `
         query {
             pizzaSizeByName(name: ${args.name}) {
                 name
@@ -57,9 +60,9 @@ const pizzaSizeByNameResolver = (parentValue, args) => axios({
         }
         `
     }
-  })
-  .then(response => response.data.data.pizzaSizeByName)
-  .catch(console.log('Error'));
+})
+    .then(response => response.data.data.pizzaSizeByName)
+    .catch(console.log('Error'));
 
 module.exports = {
     PizzaSizeByNameType,

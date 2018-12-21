@@ -1,5 +1,5 @@
 // @vendors
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -22,18 +22,18 @@ const styles = () => ({
 class OrderCard extends Component {
     state = {
         checked: [],
-        remainingToppings: null
+        remainingToppings: null,
+        totalPrice: 0
     };
 
     componentDidMount() {
         const { data: { toppings } } = this.props;
         const checkedDefaultSelectedValues = [];
-
-        // Check the initial defaultSelected from the toppings array
+        // Map toppings for defaultSelected and setState checked to the ones that are true
         toppings.map(value => value.defaultSelected ? checkedDefaultSelectedValues.push(value) : null);
         this.setState({
             checked: checkedDefaultSelectedValues
-        }, this.handleRemainingToppings);
+        }, this.updateRemainingToppings);
     }
 
     handleToggle = (value) => {
@@ -49,34 +49,39 @@ class OrderCard extends Component {
 
         this.setState({
             checked: newChecked
-        }, this.handleRemainingToppings);
+        }, this.updateRemainingToppings);
     };
 
-    handleRemainingToppings = () => {
+    updateRemainingToppings = () => {
         const { data: { maxToppings, toppings } } = this.props;
         const { checked } = this.state;
+        // Updating remainingToppings
         const maxT = maxToppings || (toppings.length - 1);
-        this.setState({ remainingToppings: maxT - checked.length });
+        this.setState({ remainingToppings: maxT - checked.length }, this.updateTotalPrice);
+    }
+
+    updateTotalPrice = () => {
+        const { data: { basePrice } } = this.props;
+        const { checked } = this.state;
+        const totalPriceOfToppings = [];
+        // Push total price of toppings to array 'totalPriceOfToppings'
+        // Next find the sum of totalPriceOfToppings and setState to totalPrice
+        checked.map(value => totalPriceOfToppings.push(value.topping.price));
+        const sumOfTotalPriceOfToppings = totalPriceOfToppings.reduce((a, b) => a + b, 0);
+        this.setState({ totalPrice: basePrice + sumOfTotalPriceOfToppings });
     }
 
     render() {
-        const {
-            classes, data:
-            {
-                basePrice,
-                name,
-                toppings
-            }
-        } = this.props;
-        const { checked, remainingToppings } = this.state;
+        const { classes, data: { name, toppings } } = this.props;
+        const { checked, remainingToppings, totalPrice } = this.state;
 
         return (
-            <Fragment>
+            <div className="order-card__details">
                 <div className="order-card__details">
                     { /*eslint-disable */ }
                     <h3>Size: { name }</h3>
                     <h3>Remaining toppings: { remainingToppings } </h3>
-                    <h3>$ { basePrice } </h3>
+                    <h3>Total: $ { totalPrice.toFixed(2) } </h3>
                     { /* eslint-enable */}
                 </div>
                 <List className={classes.root}>
@@ -101,7 +106,7 @@ class OrderCard extends Component {
                         </ListItem>
                     ))}
                 </List>
-            </Fragment>
+            </div>
         );
     }
 }

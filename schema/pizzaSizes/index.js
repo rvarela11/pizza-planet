@@ -1,6 +1,7 @@
 // @vendors
 const graphql = require('graphql');
 const axios = require('axios');
+
 const {
     GraphQLInt,
     GraphQLObjectType,
@@ -10,11 +11,11 @@ const {
 const PizzaSizesType = new GraphQLObjectType({
     name: 'pizzaSizes',
     fields: {
-      name: { type: GraphQLString },
-      maxToppings: { type: GraphQLInt },
-      basePrice: { 
-          type: GraphQLString,
-          resolve: (data) => `$${data.basePrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+        name: { type: GraphQLString },
+        maxToppings: { type: GraphQLInt },
+        basePrice: {
+            type: GraphQLString,
+            resolve: data => `$${data.basePrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
         }
     }
 });
@@ -25,7 +26,7 @@ const pizzaSizesResolver = () => axios({
     url: URL,
     method: 'get',
     data: {
-      query: `
+        query: `
         query {
             pizzaSizes {
                 name
@@ -35,9 +36,9 @@ const pizzaSizesResolver = () => axios({
         }
         `
     }
-  })
-  .then(response => response.data.data.pizzaSizes)
-  .catch(console.log('Error'));
+})
+    .then(response => response.data.data.pizzaSizes)
+    .catch(console.log('Error'));
 
 module.exports = {
     PizzaSizesType,

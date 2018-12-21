@@ -5,9 +5,8 @@
 
 .footer {
   height: rem(10px);
-  width: 100%;
   padding: $spacing-sm; 
   background-color: $color__mid-gray;
-  position: absolute;
+  position: sticky;
   bottom: 0;
 }
