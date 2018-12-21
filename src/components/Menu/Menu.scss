@@ -2,26 +2,25 @@
 @import '../../globals/scss/spacing';
 @import '../../globals/scss/typography';
 
-.pizzas__selection {
+.menu__selection {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.pizzas__title {
+.menu__title {
   @include typescale(3);
   font-family: $font-family-sans-serif;
   font-weight: 500;
   margin: rem(15px) 0;
 }
 
-.pizzas {
+.menu {
   overflow-y: scroll;
   width: 75%;
-  height: calc(100vh - 190px);
 }
 
-.pizzas__list {
+.menu__list {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(275px, 1fr));
 }
@@ -30,13 +29,13 @@
 // https://caniuse.com/#feat=css-grid
 
 @supports not (display: grid) {
-  .pizzas {
+  .menu {
     display: flex;
     justify-content: center;
     padding: 0 $spacing-lg;
   }
 
-  .pizzas__list {
+  .menu__list {
     display: flex;
     flex-wrap: wrap;
     flex-basis: 915px;
@@ -46,7 +45,7 @@
 /*---------------- @media -------------------*/
 
 @media screen and (max-width: 527px) {
-  .pizzas__title {
+  .menu__title {
     @include typescale(0);
   }
 }

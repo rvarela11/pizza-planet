@@ -1,18 +1,14 @@
 import gql from 'graphql-tag';
 
-export const getPizzas = gql`
-    query getPizzas {
-        pizzaSizes {
-          name
-          maxToppings
-          basePrice
-        }
+export const getPizzaSizeByNameFromState = gql`
+    query getPizzaSizeByNameFromState {
+        selectedPizzaSizeFromMenu @client
     }
 `;
 
 export const getPizzaSizeByName = gql`
-    query getPizzaSizeByName($name: String) {
-        pizzaSizeByName(name: $name) {
+    query getPizzaSizeByName($selectedPizzaSizeFromMenu: String) {
+        pizzaSizeByName(name: $selectedPizzaSizeFromMenu) {
             name
             maxToppings
             basePrice
@@ -26,5 +22,3 @@ export const getPizzaSizeByName = gql`
         }
     }
 `;
-
-
