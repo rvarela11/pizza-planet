@@ -1,8 +1,9 @@
 // @styles
 @import '../../globals/scss/css--reset';
+@import '../../globals/scss/colors';
 
 .App {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

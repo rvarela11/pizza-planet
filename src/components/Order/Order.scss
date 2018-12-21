@@ -1,0 +1,13 @@
+// @styles
+@import '../../globals/scss/spacing';
+@import '../../globals/scss/typography';
+
+.order__selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order__button {
+    margin: 0 rem(10px);
+}

@@ -19,7 +19,7 @@ const MenuCard = (props) => {
             {updatePizzaSizeByName => (
                 <Link
                     to="/order"
-                    className="menu-card"
+                    className="menu-card link"
                     aria-label={item.description}
                     onClick={() => updatePizzaSizeByName({ variables: { selectedPizzaSizeFromMenu: item.name } })}
                     tabIndex="0"

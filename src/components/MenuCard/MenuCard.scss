@@ -3,6 +3,11 @@
 @import '../../globals/scss/spacing';
 @import '../../globals/scss/typography';
 
+.link {
+  text-decoration: none;
+  color: $color__white;
+}
+
 .menu-card {
   border: $spacing-4xs solid $color__light-gray;
   display: flex;
@@ -10,7 +15,6 @@
   margin: $spacing-xs 0;
   padding: $spacing-xs;
   width: rem(275px);
-  text-decoration: none;
   color: $color__black;
 
   &:hover {

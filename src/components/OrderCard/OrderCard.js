@@ -15,7 +15,8 @@ import './OrderCard.scss';
 const styles = () => ({
     root: {
         width: '100%',
-        maxWidth: 360
+        maxWidth: 360,
+        margin: 'auto'
     }
 });
 
@@ -76,12 +77,12 @@ class OrderCard extends Component {
         const { checked, remainingToppings, totalPrice } = this.state;
 
         return (
-            <div className="order-card__details">
+            <div className="order-card">
                 <div className="order-card__details">
                     { /*eslint-disable */ }
-                    <h3>Size: { name }</h3>
-                    <h3>Remaining toppings: { remainingToppings } </h3>
-                    <h3>Total: $ { totalPrice.toFixed(2) } </h3>
+                    <h3 className="order-card__details-label">Size: <span>{ name }</span></h3>
+                    <h3 className="order-card__details-label">Remaining toppings: <span>{ remainingToppings }</span></h3>
+                    <h3 className="order-card__details-label">Total: <span>${ totalPrice.toFixed(2) }</span></h3>
                     { /* eslint-enable */}
                 </div>
                 <List className={classes.root}>

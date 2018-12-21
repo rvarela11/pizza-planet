@@ -1,9 +1,42 @@
+// @styles
+@import '../../globals/scss/colors';
+@import '../../globals/scss/spacing';
+@import '../../globals/scss/typography';
+
 .order-card {
-    border: 1px solid red;
+    border: $spacing-4xs solid $color__light-gray;
+    width: 50%;
+    margin-bottom: rem(16px);
 }
 
-.order__selection {
+.order-card__details {
+    width: 100%;
+    max-width: rem(360px);
+    margin: auto;
+}
+
+.order-card__details-label {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+/*---------------- @media -------------------*/
+
+@media screen and (max-width: 720px) {
+    .order-card {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .order-card {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .order-card {
+        width: 90%;
+    }
 }
