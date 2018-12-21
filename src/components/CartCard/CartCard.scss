@@ -1,0 +1,9 @@
+// @styles
+@import '../../globals/scss/colors';
+@import '../../globals/scss/typography';
+
+.card-list__totalPrice {
+    @include typescale(4);
+    font-weight: 500;
+    color: $color__red;
+}

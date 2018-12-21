@@ -28,6 +28,7 @@ const styles = theme => ({
         margin: 'auto'
     },
     button: {
+        width: '5rem',
         margin: theme.spacing.unit,
         color: 'white'
     }
