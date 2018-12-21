@@ -1,22 +1,28 @@
 // @vendors
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 
 // @styles
 import './OrderCard.scss';
 
 // Overriding material-ui classes
-const styles = () => ({
+const styles = theme => ({
     root: {
         width: '100%',
         maxWidth: 360,
         margin: 'auto'
+    },
+    button: {
+        margin: theme.spacing.unit,
+        color: 'white'
     }
 });
 
@@ -78,6 +84,15 @@ class OrderCard extends Component {
 
         return (
             <div className="order-card">
+                <div className="order-card__buttons">
+                    <Button onClick={() => console.log(this.state) } variant="contained" color="primary" className={classes.button}> ADD </Button>
+                    <Button variant="contained" color="secondary" className={classes.button}>
+                        <Link to="/" className="link"> MENU </Link>
+                    </Button>
+                    <Button variant="contained" color="secondary" className={classes.button}>
+                        <Link to="/cart" className="link"> CART </Link>
+                    </Button>
+                </div>
                 <div className="order-card__details">
                     { /*eslint-disable */ }
                     <h3 className="order-card__details-label">Size: <span>{ name }</span></h3>

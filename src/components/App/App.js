@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Menu from '../Menu/Menu';
 import Order from '../Order/Order';
+import Cart from '../Cart/Cart';
 import Footer from '../Footer/Footer';
 
 // @styles
@@ -17,6 +18,7 @@ const App = () => (
         <Switch>
             <Route exact path="/" component={Menu} />
             <Route exact path="/order" component={Order} />
+            <Route exact path="/cart" component={Cart} />
         </Switch>
         <Footer />
     </div>
