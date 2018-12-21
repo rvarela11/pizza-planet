@@ -1,6 +1,7 @@
 // @vendors
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Mutation } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -10,8 +11,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 
+// @mutations
+import { addItemToCart } from './mutations';
+
 // @styles
 import './OrderCard.scss';
+
+// @state
+import { defaults } from '../../state';
 
 // Overriding material-ui classes
 const styles = theme => ({
@@ -30,7 +37,8 @@ class OrderCard extends Component {
     state = {
         checked: [],
         remainingToppings: null,
-        totalPrice: 0
+        totalPrice: 0,
+        totalToppings: 0
     };
 
     componentDidMount() {
@@ -64,7 +72,7 @@ class OrderCard extends Component {
         const { checked } = this.state;
         // Updating remainingToppings
         const maxT = maxToppings || (toppings.length - 1);
-        this.setState({ remainingToppings: maxT - checked.length }, this.updateTotalPrice);
+        this.setState({ remainingToppings: maxT - checked.length, totalToppings: checked.length }, this.updateTotalPrice);
     }
 
     updateTotalPrice = () => {
@@ -80,16 +88,33 @@ class OrderCard extends Component {
 
     render() {
         const { classes, data: { name, toppings } } = this.props;
-        const { checked, remainingToppings, totalPrice } = this.state;
+        const {
+            checked,
+            remainingToppings,
+            totalPrice,
+            totalToppings
+        } = this.state;
+        console.log({ defaults });
 
         return (
             <div className="order-card">
                 <div className="order-card__buttons">
-                    <Button onClick={() => console.log(this.state) } variant="contained" color="primary" className={classes.button}> ADD </Button>
-                    <Button variant="contained" color="secondary" className={classes.button}>
+                    <Mutation mutation={addItemToCart}>
+                        {addItemToCart => (
+                            <Button
+                                className={classes.button}
+                                color="primary"
+                                onClick={() => addItemToCart({ variables: { name, totalPrice, totalToppings } })}
+                                variant="contained"
+                            >
+                            ADD
+                            </Button>
+                        )}
+                    </Mutation>
+                    <Button className={classes.button} color="secondary" variant="contained">
                         <Link to="/" className="link"> MENU </Link>
                     </Button>
-                    <Button variant="contained" color="secondary" className={classes.button}>
+                    <Button className={classes.button} color="secondary" variant="contained">
                         <Link to="/cart" className="link"> CART </Link>
                     </Button>
                 </div>

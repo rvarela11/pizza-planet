@@ -5,7 +5,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import { ShoppingCart } from '@material-ui/icons/';
 
-
 // @styles
 import './Header.scss';
 
