@@ -5,3 +5,4 @@ export const getTotalNumberOfItems = gql`
         totalNumberOfItems @client
     }
 `;
+
