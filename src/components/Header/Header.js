@@ -21,7 +21,11 @@ const Header = () => (
                     <Link to="/" className="link header__logo" />
                     <Link to="/cart" className="link">
                         <IconButton>
-                            <Badge badgeContent={totalNumberOfItems} color="secondary" invisible={totalNumberOfItems.length === 0 || totalNumberOfItems === 0}>
+                            <Badge
+                                badgeContent={totalNumberOfItems}
+                                color="secondary"
+                                invisible={totalNumberOfItems.length === 0 || totalNumberOfItems === 0}
+                            >
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>

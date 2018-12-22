@@ -11,7 +11,6 @@ import { updatePizzaSizeByName } from './mutations';
 // @styles
 import './MenuCard.scss';
 
-
 const MenuCard = (props) => {
     const { item } = props;
     return (
@@ -50,6 +49,5 @@ const MenuCard = (props) => {
 MenuCard.propTypes = {
     item: PropTypes.object.isRequired
 };
-
 
 export default withRouter(MenuCard);

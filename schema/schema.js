@@ -1,9 +1,9 @@
 const graphql = require('graphql');
 
 const {
+    GraphQLList,
     GraphQLObjectType,
     GraphQLSchema,
-    GraphQLList,
     GraphQLString
 } = graphql;
 

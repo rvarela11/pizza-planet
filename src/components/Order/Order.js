@@ -17,10 +17,10 @@ const Order = () => (
             if (loading) return null;
             return (
                 <Query
-                    query={getPizzaSizeByName}
-                    variables={{ selectedPizzaSizeFromMenu }}
-                    skip={!selectedPizzaSizeFromMenu}
                     fetchPolicy="network-only"
+                    query={getPizzaSizeByName}
+                    skip={!selectedPizzaSizeFromMenu}
+                    variables={{ selectedPizzaSizeFromMenu }}
                 >
                     {({ data: { pizzaSizeByName }, loading }) => {
                         if (loading) return null;

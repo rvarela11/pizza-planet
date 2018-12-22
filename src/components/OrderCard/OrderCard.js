@@ -17,9 +17,6 @@ import { addItemToCart } from './mutations';
 // @styles
 import './OrderCard.scss';
 
-// @state
-import { defaults } from '../../state';
-
 // Overriding material-ui classes
 const styles = theme => ({
     root: {
@@ -73,7 +70,10 @@ class OrderCard extends Component {
         const { checked } = this.state;
         // Updating remainingToppings
         const maxT = maxToppings || toppings.length;
-        this.setState({ remainingToppings: maxT - checked.length, totalToppings: checked.length }, this.updateTotalPrice);
+        this.setState({
+            remainingToppings: maxT - checked.length,
+            totalToppings: checked.length
+        }, this.updateTotalPrice);
     }
 
     updateTotalPrice = () => {
@@ -95,7 +95,6 @@ class OrderCard extends Component {
             totalPrice,
             totalToppings
         } = this.state;
-        console.log(defaults);
         return (
             <div className="order-card">
                 <div className="order-card__buttons">
@@ -128,17 +127,17 @@ class OrderCard extends Component {
                 <List className={classes.root}>
                     {toppings.map((value, index) => (
                         <ListItem
-                            key={index}
-                            role={undefined}
-                            dense
                             button
-                            onClick={() => this.handleToggle(value)}
+                            dense
                             disabled={remainingToppings === 0 && checked.indexOf(value) === -1}
+                            key={index}
+                            onClick={() => this.handleToggle(value)}
+                            role={undefined}
                         >
                             <Checkbox
                                 checked={checked.indexOf(value) !== -1}
-                                tabIndex={-1}
                                 disableRipple
+                                tabIndex={-1}
                             />
                             <ListItemText primary={value.topping.name} />
                             <ListItemSecondaryAction>

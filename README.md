@@ -1,4 +1,4 @@
-# Waldo Photos
+# Pizza Planet
 
 ### About
 
