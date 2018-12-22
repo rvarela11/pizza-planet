@@ -12,7 +12,7 @@ import { getPizzas } from './queries';
 import './Menu.scss';
 
 const Menu = () => (
-    <Query query={getPizzas}>
+    <Query query={getPizzas} fetchPolicy="network-only">
         {({ data: { pizzaSizes }, loading }) => {
             if (loading) return null;
             return (

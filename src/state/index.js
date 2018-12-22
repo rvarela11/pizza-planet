@@ -25,6 +25,18 @@ export const resolvers = {
                 }
             });
             return null;
+        },
+        removeItemFromCart: (_, { index }, { cache }) => {
+            const defaultCartIems = defaults.cartItems;
+            defaultCartIems.splice(index, 1);
+            
+            cache.writeData({
+                data: {
+                    cartItems: defaultCartIems
+                }
+            });
+            return null;
         }
+
     }
 };

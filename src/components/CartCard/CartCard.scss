@@ -1,9 +1,18 @@
 // @styles
 @import '../../globals/scss/colors';
+@import '../../globals/scss/spacing';
 @import '../../globals/scss/typography';
 
-.card-list__totalPrice {
-    @include typescale(4);
-    font-weight: 500;
-    color: $color__red;
+.cart-card {
+    border: $spacing-4xs solid $color__light-gray;
+    width: 50%;
+    margin: 0 0 rem(16px) 0;
+    padding: 0 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-card__totalPrice {
+    font-weight: 500
 }

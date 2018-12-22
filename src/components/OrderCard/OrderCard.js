@@ -17,9 +17,6 @@ import { addItemToCart } from './mutations';
 // @styles
 import './OrderCard.scss';
 
-// @state
-import { defaults } from '../../state';
-
 // Overriding material-ui classes
 const styles = theme => ({
     root: {
@@ -72,7 +69,7 @@ class OrderCard extends Component {
         const { data: { maxToppings, toppings } } = this.props;
         const { checked } = this.state;
         // Updating remainingToppings
-        const maxT = maxToppings || (toppings.length - 1);
+        const maxT = maxToppings || toppings.length;
         this.setState({ remainingToppings: maxT - checked.length, totalToppings: checked.length }, this.updateTotalPrice);
     }
 
@@ -95,8 +92,6 @@ class OrderCard extends Component {
             totalPrice,
             totalToppings
         } = this.state;
-        console.log({ defaults });
-
         return (
             <div className="order-card">
                 <div className="order-card__buttons">

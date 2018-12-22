@@ -38,7 +38,7 @@ const MenuCard = (props) => {
                             {item.basePrice}
                         </div>
                         <div className="menu-card__description-maxToppings">
-                            {`Max Toppings: ${item.maxToppings || 6}`}
+                            {`Max Toppings: ${item.maxToppings || 7}`}
                         </div>
                     </div>
                 </Link>
