@@ -37,7 +37,7 @@ const link = ApolloLink.from([
     apolloLogger,
     stateLink,
     new HttpLink({
-        uri: 'http://localhost:4000/graphql',
+        uri: 'http://robertvarela.com/graphql',
         credentials: 'same-origin'
     })
 ]);
