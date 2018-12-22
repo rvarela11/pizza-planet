@@ -1,5 +1,6 @@
 export const defaults = {
     cartItems: [],
+    totalNumberOfItems: [],
     selectedPizzaSizeFromMenu: null
 };
 
@@ -21,7 +22,8 @@ export const resolvers = {
                         totalPrice,
                         totalToppings,
                         __typename: 'cartItem'
-                    })
+                    }),
+                    totalNumberOfItems: defaults.totalNumberOfItems.push(1)
                 }
             });
             return null;

@@ -17,6 +17,9 @@ import { addItemToCart } from './mutations';
 // @styles
 import './OrderCard.scss';
 
+// @state
+import { defaults } from '../../state';
+
 // Overriding material-ui classes
 const styles = theme => ({
     root: {
@@ -92,6 +95,7 @@ class OrderCard extends Component {
             totalPrice,
             totalToppings
         } = this.state;
+        console.log(defaults);
         return (
             <div className="order-card">
                 <div className="order-card__buttons">
