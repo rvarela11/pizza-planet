@@ -111,7 +111,7 @@ class OrderCard extends Component {
                         )}
                     </Mutation>
                     <Button className={classes.button} color="secondary" variant="contained">
-                        <Link to="/" className="link"> MENU </Link>
+                        <Link to="/pizza-planet" className="link"> MENU </Link>
                     </Button>
                     <Button className={classes.button} color="secondary" variant="contained">
                         <Link to="/cart" className="link"> CART </Link>

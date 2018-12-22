@@ -18,7 +18,7 @@ const Header = () => (
             if (loading) return null;
             return (
                 <div className="header">
-                    <Link to="/" className="link header__logo" />
+                    <Link to="/pizza-planet" className="link header__logo" />
                     <Link to="/cart" className="link">
                         <IconButton>
                             <Badge
