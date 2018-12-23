@@ -68,7 +68,7 @@ class CartCard extends Component {
                     {cartItems.map((value, index) => (
                         <ListItem key={index} className={classes.listItem}>
                             <ListItemText
-                                primary={`$${value.totalPrice}`}
+                                primary={`$${value.totalPrice.toFixed(2)}`}
                             />
                             <ListItemText
                                 primary={value.name}
