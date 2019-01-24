@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/pizza-planet/static/js/runtime~main.ebd8343b.js"
   },
   {
-    "revision": "3f25f0bd8309e6f1ddc5",
-    "url": "/pizza-planet/static/js/main.3f25f0bd.chunk.js"
+    "revision": "ab3334f2de06f1a3a707",
+    "url": "/pizza-planet/static/js/main.ab3334f2.chunk.js"
   },
   {
     "revision": "338fb6b4b4e123775a69",
     "url": "/pizza-planet/static/js/1.338fb6b4.chunk.js"
   },
   {
-    "revision": "3f25f0bd8309e6f1ddc5",
-    "url": "/pizza-planet/static/css/main.917d5686.chunk.css"
+    "revision": "ab3334f2de06f1a3a707",
+    "url": "/pizza-planet/static/css/main.220afd14.chunk.css"
   },
   {
-    "revision": "a63f9e3dd1640a82e4228930499bbd39",
+    "revision": "b63dbd71dfc6c4856742632395d491f7",
     "url": "/pizza-planet/index.html"
   }
 ];
