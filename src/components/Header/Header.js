@@ -24,7 +24,7 @@ const Header = () => (
                             <Badge
                                 badgeContent={totalNumberOfItems}
                                 color="secondary"
-                                invisible={totalNumberOfItems.length === 0 || totalNumberOfItems === 0}
+                                invisible={totalNumberOfItems === 0}
                             >
                                 <ShoppingCart />
                             </Badge>

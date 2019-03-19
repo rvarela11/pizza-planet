@@ -1,6 +1,9 @@
+// @queries
+import { getTotalNumberOfItems } from '../components/Header/queries';
+
 export const defaults = {
     cartItems: [],
-    totalNumberOfItems: [],
+    totalNumberOfItems: 0,
     selectedPizzaSizeFromMenu: null
 };
 
@@ -15,6 +18,9 @@ export const resolvers = {
             return null;
         },
         addItemToCart: (_, { name, totalPrice, totalToppings }, { cache }) => {
+            // Adding the cart items number that is displaying on the Header
+            let { totalNumberOfItems } = cache.readQuery({ query: getTotalNumberOfItems });
+            totalNumberOfItems += 1;
             cache.writeData({
                 data: {
                     cartItems: defaults.cartItems.push({
@@ -23,7 +29,7 @@ export const resolvers = {
                         totalToppings,
                         __typename: 'cartItem'
                     }),
-                    totalNumberOfItems: defaults.totalNumberOfItems.push(1)
+                    totalNumberOfItems
                 }
             });
             return null;
@@ -33,15 +39,14 @@ export const resolvers = {
             const defaultCartIems = defaults.cartItems;
             defaultCartIems.splice(index, 1);
 
-            // Removing the cart items number that is displaying on the cart icon
-            const defaultTotalNumberOfItems = defaults.totalNumberOfItems;
-            defaultTotalNumberOfItems.splice(index, 1);
-            const sumOfDefaultTotalNumberOfItems = defaultTotalNumberOfItems.reduce((a, b) => a + b, 0);
+            // Removing the cart items number that is displaying on the Header
+            let { totalNumberOfItems } = cache.readQuery({ query: getTotalNumberOfItems });
+            totalNumberOfItems -= 1;
 
             cache.writeData({
                 data: {
                     cartItems: defaultCartIems,
-                    totalNumberOfItems: sumOfDefaultTotalNumberOfItems
+                    totalNumberOfItems
                 }
             });
             return null;
